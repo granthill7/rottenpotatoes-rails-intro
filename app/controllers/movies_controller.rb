@@ -11,12 +11,14 @@ class MoviesController < ApplicationController
   end
 
   def index
+    # Decide if using session sort or params sort
     @sort = session[:sort]
     if params[:sort] != nil
       @sort = params[:sort]
       session[:sort] = @sort
     end
     
+    # Decide if using session ratings or params ratings
     @ratings = session[:ratings]
     if params[:ratings] != nil
       @ratings = params[:ratings]
